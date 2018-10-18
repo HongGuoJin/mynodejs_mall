@@ -2,14 +2,12 @@
 // 引入的位置放在第一行
 require('express-async-errors');
 require("./db");
-
 let express = require("express");
-
 // 处理日志
 let morgan = require("morgan");
 
 let app = express();
-let config = require("./config");
+//let config = require("./config");
 
 // 使用自定义的加强response的中间件
 app.use(require("./middleware/response_md"));
@@ -29,4 +27,4 @@ app.use((err, request, response, next) => {
 
 });
 
-app.listen(config.PORT);
+app.listen(8000);
