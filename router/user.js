@@ -3,9 +3,8 @@ let router = require("express").Router();
 //导入服务端
 let serviceUser = require("../service/user");
 //添加
-router.post("/", async (request, response) => {
+router.post("/regist", async (request, response) => {
     let body = request.body;
-
     let result = await serviceUser.addUser(body);
     response.success(result);
 
@@ -22,8 +21,8 @@ router.get("/:username", async (request, response) => {
 })
 //登陆
 router.post("/login", async (request, response) => {
-    let result = await serviceUser.login(request.body);
-    response.success(result);
+    let token = await serviceUser.login(request.body);
+    response.success(token);
 })
 
 //导出模板

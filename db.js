@@ -1,6 +1,6 @@
 let mongoose = require("mongoose");
-//let config = require("./config");
-mongoose.connect("mongodb://localhost/Myuser", {useNewUrlParser: true})
+let config = require("./config");
+mongoose.connect("mongodb://localhost/" + config.DB, {useNewUrlParser: true})
 let connection = mongoose.connection;
 
 connection.on("error", err => {
